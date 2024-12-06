@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            cursor: pointer;
+        }
+
+        h1 {
+            font-size: 6em;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            margin: 0;
+        }
+    </style>
+    <script>
+        let isNo = true; // Initial state is "No"
+
+        function toggleText() {
+            const h1 = document.querySelector('h1');
+            if (isNo) {
+                h1.textContent = 'Busy Ko';
+            } else {
+                h1.textContent = 'No';
+            }
+            isNo = !isNo; // Toggle the state
+        }
+
+        // Prevent right-click and key shortcuts
+        document.addEventListener('contextmenu', (e) => e.preventDefault()); 
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && (e.key === 'u' || e.key === 's' || e.key === 'c' || e.key === 'p')) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</head>
+<body onclick="toggleText()">
+    <h1>No</h1>
+</body>
+</html>
